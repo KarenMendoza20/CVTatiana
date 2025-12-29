@@ -210,9 +210,8 @@ if (btnWhatsapp) {
 // Botón de descarga de CV con animación
 if (btnDownload) {
     btnDownload.addEventListener('click', () => {
-        // IMPORTANTE: Reemplaza 'CV-Tatiana-Mendoza.pdf' con la ruta real de tu archivo PDF
         const link = document.createElement('a');
-        link.href = 'CV-Tatiana-Mendoza.pdf'; // Cambia esto por la ruta real
+        link.href = 'Tatiana Mendoza Molinos_CV'; 
         link.download = 'CV-Tatiana-Mendoza-Molinos.pdf';
         document.body.appendChild(link);
         link.click();
