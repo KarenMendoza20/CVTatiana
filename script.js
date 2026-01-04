@@ -234,10 +234,10 @@ if (btnWhatsapp) {
 // Botón de descarga de CV con animación
 if (btnDownload) {
     btnDownload.addEventListener('click', () => {
-        // IMPORTANTE: Reemplaza 'CV-Tatiana-Mendoza.pdf' con la ruta real de tu archivo PDF
+        // Ruta correcta del CV en PDF
         const link = document.createElement('a');
-        link.href = 'CV-Tatiana-Mendoza.pdf'; // Cambia esto por la ruta real
-        link.download = 'CV-Tatiana-Mendoza-Molinos.pdf';
+        link.href = 'TatianaMendozaMolinos_CV.pdf';
+        link.download = 'TatianaMendozaMolinos_CV.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -249,7 +249,7 @@ if (btnDownload) {
         }, 200);
         
         // Mensaje en consola
-        console.log('Descargando CV...');
+        console.log('Descargando CV: TatianaMendozaMolinos_CV.pdf');
     });
 }
 
