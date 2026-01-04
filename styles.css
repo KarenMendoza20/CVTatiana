@@ -257,7 +257,7 @@ body {
     height: 200px;
     border-radius: 50%;
     border: 5px solid var(--white);
-    background-image: url('Foto.JPEG'); 
+    background-image: url('Foto.JPG'); 
     background-size: cover;            
     background-position: center;   
     background-repeat: no-repeat;
