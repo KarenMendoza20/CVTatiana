@@ -4,6 +4,20 @@
 let currentLanguage = 'es';
 
 // ============================================
+// ACTUALIZAR AÑO EN FOOTER AUTOMÁTICAMENTE
+// ============================================
+function updateCopyrightYear() {
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        const currentYear = new Date().getFullYear();
+        yearSpan.textContent = currentYear;
+    }
+}
+
+// Ejecutar al cargar la página
+updateCopyrightYear();
+
+// ============================================
 // MENÚ HAMBURGUESA
 // ============================================
 const hamburger = document.getElementById('hamburger');
@@ -93,6 +107,13 @@ function translatePage(lang) {
         if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
             element.placeholder = text;
         } 
+        // Si es el párrafo del footer con el año
+        else if (element.id === 'currentYear' || element.querySelector('#currentYear')) {
+            const yearSpan = document.getElementById('currentYear');
+            const currentYear = new Date().getFullYear();
+            const translatedText = text.replace('<span id=\'currentYear\'></span>', currentYear);
+            element.innerHTML = translatedText.replace(currentYear, `<span id="currentYear">${currentYear}</span>`);
+        }
         // Si es un botón o enlace con icono
         else if (element.querySelector('i')) {
             const icon = element.querySelector('i').cloneNode(true);
@@ -105,6 +126,9 @@ function translatePage(lang) {
             element.textContent = text;
         }
     });
+    
+    // Asegurar que el año sigue visible después de traducir
+    updateCopyrightYear();
     
     // Actualizar atributos title de botones flotantes
     const btnDownload = document.getElementById('btnDownload');
@@ -210,8 +234,9 @@ if (btnWhatsapp) {
 // Botón de descarga de CV con animación
 if (btnDownload) {
     btnDownload.addEventListener('click', () => {
+        // IMPORTANTE: Reemplaza 'CV-Tatiana-Mendoza.pdf' con la ruta real de tu archivo PDF
         const link = document.createElement('a');
-        link.href = 'Tatiana Mendoza Molinos_CV'; 
+        link.href = 'CV-Tatiana-Mendoza.pdf'; // Cambia esto por la ruta real
         link.download = 'CV-Tatiana-Mendoza-Molinos.pdf';
         document.body.appendChild(link);
         link.click();
